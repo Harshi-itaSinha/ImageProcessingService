@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+gunicorn
+sqlalchemy
+httpx
+pydantic
+python-multipart
+sqlite3
