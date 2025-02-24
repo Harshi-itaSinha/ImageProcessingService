@@ -5,6 +5,7 @@ This FastAPI-based service allows users to upload CSV files containing product d
 
 ## Features
 - CSV Upload API for bulk processing.
+- Image file upload support.
 - Background task execution for image compression.
 - Status API for tracking processing requests.
 - Webhook notifications when processing is complete.
@@ -13,7 +14,8 @@ This FastAPI-based service allows users to upload CSV files containing product d
 ## Setup Instructions
 1. Clone the repository:
    ```bash
-   git clone [git repo link](https://github.com/Harshi-itaSinha/ImageProcessingService.git)
+   git clone https://github.com/your-repo/image-processing-api.git
+   cd image-processing-api
    ```
 2. Create a virtual environment and activate it:
    ```bash
@@ -42,15 +44,24 @@ curl -o openapi.json http://127.0.0.1:8000/openapi.json
 
 ## Flow Diagram
 ![Flow Diagram](docs/flow_diagram.png)
+<img width="1175" alt="Screenshot 2025-02-25 at 1 34 07 AM" src="https://github.com/user-attachments/assets/2fa5995b-5bf6-4a22-9939-aac6cd123c84" />
+
 
 ## Sequence Diagram
 ![Sequence Diagram](docs/sequence_diagram.png)
+<img width="1171" alt="Screenshot 2025-02-25 at 1 33 41 AM" src="https://github.com/user-attachments/assets/d09bc96c-4033-4dd7-9f00-d15459a4ab9c" />
 
 ## Class Diagram
-![Class Diagram](docs/class_diagram.png)
+![Class Diagram](docs/class_diagram.png)<img width="736" alt="Screenshot 2025-02-25 at 1 32 36 AM" src="https://github.com/user-attachments/assets/7f957da8-6525-46ad-90dd-6d00cb183eaf" />
+
 
 ## Postman Collection
-you can access the shared Postman workspace:([Postman Workspace](https://www.postman.com/altimetry-meteorologist-83164959/workspace/image-processing/collection/42352105-7bac7468-4591-40f1-a638-f58b753520b1?action=share&creator=42352105))
+To test the API endpoints using Postman:
+1. Download the Postman collection: [Postman Collection](docs/postman_collection.json)
+2. Import it into Postman by clicking **Import** and selecting the downloaded file.
+3. Configure the base URL as `https://imageprocessingservice-4di9.onrender.com`.
+
+Alternatively, you can access the shared Postman workspace: [Postman Workspace](https://www.postman.com/altimetry-meteorologist-83164959/workspace/image-processing/request/42352105-96690377-91a1-47c1-a94e-dbbdd8fb7d17?action=share&creator=42352105&ctx=documentation)
 
 ## API Endpoints
 ### 1. Upload CSV
@@ -66,7 +77,27 @@ you can access the shared Postman workspace:([Postman Workspace](https://www.pos
 }
 ```
 
-### 2. Get Processing Status
+**cURL Example:**
+```bash
+curl --location 'https://imageprocessingservice-4di9.onrender.com/upload' \
+--header 'accept: application/json' \
+--form 'file=@"postman-cloud:///1eff2cbc-7df7-4c90-ab5b-fa5fc2334f21"'
+```
+
+### 2. Upload Image
+**Endpoint:** `POST /upload-image/`
+- Accepts an image file (JPEG, PNG, GIF, WebP).
+- Stores the uploaded image and returns a URL.
+
+**Response:**
+```json
+{
+    "filename": "e2b43657-3f23-4ae3-8865-6309dda7e02f.png",
+    "url": "/images/e2b43657-3f23-4ae3-8865-6309dda7e02f.png"
+}
+```
+
+### 3. Get Processing Status
 **Endpoint:** `GET /status/{request_id}`
 - Fetches the status of an image processing request.
 - Returns processed image URLs when ready.
@@ -79,6 +110,11 @@ you can access the shared Postman workspace:([Postman Workspace](https://www.pos
     "products": [...],
     "output_csv": "./output_e2b43657-3f23-4ae3-8865-6309dda7e02f.csv"
 }
+```
+
+**cURL Example:**
+```bash
+curl --location 'https://imageprocessingservice-4di9.onrender.com/status/e37d2359-3d09-47db-a668-2'
 ```
 
 ## Future Improvements
