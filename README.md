@@ -43,14 +43,14 @@ curl -o openapi.json http://127.0.0.1:8000/openapi.json
 ```
 
 ## Flow Diagram
-![Flow Diagram](docs/flow_diagram.png)<img width="1175" alt="Screenshot 2025-02-25 at 1 34 07 AM" src="https://github.com/user-attachments/assets/2fa5995b-5bf6-4a22-9939-aac6cd123c84" />
+<img width="1175" alt="Screenshot 2025-02-25 at 1 34 07 AM" src="https://github.com/user-attachments/assets/2fa5995b-5bf6-4a22-9939-aac6cd123c84" />
 
 
 ## Sequence Diagram
-![Sequence Diagram](docs/sequence_diagram.png)<img width="1171" alt="Screenshot 2025-02-25 at 1 33 41 AM" src="https://github.com/user-attachments/assets/d09bc96c-4033-4dd7-9f00-d15459a4ab9c" />
+<img width="1171" alt="Screenshot 2025-02-25 at 1 33 41 AM" src="https://github.com/user-attachments/assets/d09bc96c-4033-4dd7-9f00-d15459a4ab9c" />
 
 ## Class Diagram
-![Class Diagram](docs/class_diagram.png)<img width="736" alt="Screenshot 2025-02-25 at 1 32 36 AM" src="https://github.com/user-attachments/assets/7f957da8-6525-46ad-90dd-6d00cb183eaf" />
+<img width="736" alt="Screenshot 2025-02-25 at 1 32 36 AM" src="https://github.com/user-attachments/assets/7f957da8-6525-46ad-90dd-6d00cb183eaf" />
 
 
 ## Postman Collection
