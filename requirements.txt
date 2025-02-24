@@ -5,4 +5,4 @@ sqlalchemy
 httpx
 pydantic
 python-multipart
-sqlite3
+
